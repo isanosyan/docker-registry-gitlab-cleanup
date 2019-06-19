@@ -11,6 +11,7 @@ def main():
     parser.add_argument( '--registry_url', '-d', metavar='RGC_REGISTRY_URL', default=os.environ.get('RGC_REGISTRY_URL', None), help='The GitLab Registry URL that you want to access.' )
     parser.add_argument( '--retention',    '-r', metavar='RGC_RETENTION',    default=os.environ.get('RGC_RETENTION', '30'),    help='Remove tags older than this value (days) - defaults to 30' )
     parser.add_argument( '--exclude',      '-e', metavar='RGC_EXCLUDE',      default=os.environ.get('RGC_EXCLUDE', '^latest'), help='Regex to exclude from the cleanup - defaults to \'^latest\'' )
+    parser.add_argument( '--dry-run',      '-0', metavar='RGC_DRY_RUN',      default=os.environ.get('RGC_DRY_RUN', False),     help='Dry run — show which images will be removed without actually removing them.')
     args = parser.parse_args()
 
     GitlabClean(
